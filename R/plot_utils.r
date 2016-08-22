@@ -163,7 +163,7 @@ funcToIgraph <- function(func) exprToIgraph(body(func))
 exprToIgraph <- function(expr) {
   if (!require("igraph")) stop("exprToIgraph: Package 'igraph' not installed.")
   exprGraph <- exprToGraph(expr)
-  exprIgraph <- graph(exprGraph$edges - 1, n = length(exprGraph$vertices)) # igraph vertexes are counted from zero
+  exprIgraph <- graph(exprGraph$edges , n = length(exprGraph$vertices)) # igraph vertexes are counted from zero
   V(exprIgraph)$label <- exprGraph$vertices
   exprIgraph
 }
